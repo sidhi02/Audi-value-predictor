@@ -136,8 +136,8 @@ Deployment on Render
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/audi-car-price-predictor.git
-cd audi-car-price-predictor
+git clone https://github.com/yourusername/Audi-value-predictor.git
+cd Audi-value-predictor
 ```
 
 ### Create a Virtual Environment (Optional)
@@ -203,19 +203,6 @@ http://127.0.0.1:5000
 
 Aspiring Data Analyst and Machine Learning Enthusiast passionate about building intelligent, data-driven applications.
 
-- GitHub: https://github.com/yourusername
-- LinkedIn: https://linkedin.com/in/your-linkedin
-
+- GitHub: [(https://github.com/sidhi02/Audi-value-predictor)]
 ---
 
-## ⭐ Support
-
-If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
-
-It motivates me to build and share more projects.
-
----
-
-<p align="center">
-Made with ❤️ using Python, Flask, and Machine Learning.
-</p>
