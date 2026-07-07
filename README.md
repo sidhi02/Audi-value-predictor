@@ -203,6 +203,6 @@ http://127.0.0.1:5000
 
 Aspiring Data Analyst and Machine Learning Enthusiast passionate about building intelligent, data-driven applications.
 
-- GitHub: (https://github.com/sidhi02/Audi-value-predictor)
+- GitHub: https://github.com/sidhi02/Audi-value-predictor
 ---
 
