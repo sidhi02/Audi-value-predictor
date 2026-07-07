@@ -1,19 +1,24 @@
-<h1 align="center"><strong>Audi Car Price Predictor</strong></h1>
+<h1 align="center">Audi Car Price Predictor</h1>
 
 <p align="center">
-  <strong>AI-powered web application for predicting the market value of Audi cars.</strong>
+  <strong>AI-powered web application for predicting the market value of Audi vehicles using Random Forest Regression.</strong>
 </p>
 
 <p align="center">
-Built using <b>Flask</b>, <b>Scikit-learn</b>, and <b>Random Forest Regression</b> to provide fast and accurate resale price predictions based on real-world vehicle specifications.
+  Estimate your Audi's resale value instantly using machine learning trained on real-world vehicle data.
 </p>
 
 <p align="center">
-  <a href="https://your-render-url.onrender.com"><strong>🌐 Live Demo</strong></a>
-  •
-  <a href="https://github.com/yourusername/audi-car-price-predictor"><strong>📂 Source Code</strong></a>
-  •
-  <a href="https://www.linkedin.com/in/your-linkedin"><strong>💼 LinkedIn</strong></a>
+  <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white">
+  <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikitlearn&logoColor=white">
+  <img src="https://img.shields.io/badge/Status-Live-28a745">
+</p>
+
+<p align="center">
+  <a href="https://your-render-url.onrender.com">
+    <img src="https://img.shields.io/badge/Live%20Demo-Visit%20Application-C8102E?style=for-the-badge">
+  </a>
 </p>
 
 ---
@@ -28,13 +33,13 @@ Built using <b>Flask</b>, <b>Scikit-learn</b>, and <b>Random Forest Regression</
 
 ## ✨ Features
 
-- 🚘 Predicts Audi resale prices instantly
-- 🤖 Machine Learning-powered predictions using Random Forest Regression
-- 📊 Trained on real-world Audi vehicle data
-- 💰 Automatic GBP to INR price conversion
-- 🎨 Premium Audi-inspired responsive interface
-- ⚡ Fast and lightweight Flask backend
-- ☁️ Deployed on Render
+- Predicts the market value of Audi vehicles instantly
+- Machine Learning model powered by **Random Forest Regression**
+- Trained on real-world Audi vehicle listings
+- Automatic **GBP → INR** price conversion
+- Modern, responsive Audi-inspired user interface
+- Fast prediction with Flask backend
+- Deployed on Render
 
 ---
 
@@ -42,12 +47,12 @@ Built using <b>Flask</b>, <b>Scikit-learn</b>, and <b>Random Forest Regression</
 
 | Category | Technologies |
 |----------|--------------|
-| Frontend | HTML5, CSS3, Jinja2 |
-| Backend | Flask, Python |
-| Machine Learning | Scikit-learn, Random Forest Regression |
-| Data Processing | Pandas, NumPy |
-| Model Persistence | Joblib |
-| Deployment | Render, Gunicorn |
+| **Frontend** | HTML5, CSS3, Jinja2 |
+| **Backend** | Flask, Python |
+| **Machine Learning** | Scikit-learn, Random Forest Regression |
+| **Data Processing** | Pandas, NumPy |
+| **Model Persistence** | Joblib |
+| **Deployment** | Render, Gunicorn |
 
 ---
 
@@ -59,6 +64,8 @@ Audi-Car-Price-Predictor/
 ├── app.py
 ├── audi_price_model.pkl
 ├── requirements.txt
+├── Procfile
+├── runtime.txt
 ├── README.md
 │
 ├── templates/
@@ -75,13 +82,13 @@ Audi-Car-Price-Predictor/
 
 ---
 
-## 📊 Model Inputs
+## 📊 Input Features
 
-The prediction is based on the following vehicle specifications:
+The prediction model uses the following vehicle specifications:
 
-- Audi Model
+- Model
 - Manufacturing Year
-- Transmission Type
+- Transmission
 - Fuel Type
 - Mileage
 - Fuel Efficiency
@@ -89,7 +96,7 @@ The prediction is based on the following vehicle specifications:
 
 ---
 
-## 🧠 Machine Learning Pipeline
+## 🧠 Machine Learning Workflow
 
 ```text
 Dataset
@@ -126,14 +133,14 @@ Deployment on Render
 
 ## 🚀 Getting Started
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/audi-value-predictor.git
-cd audi-value-predictor
+git clone https://github.com/yourusername/audi-car-price-predictor.git
+cd audi-car-price-predictor
 ```
 
-### 2️⃣ Create a Virtual Environment (Optional)
+### Create a Virtual Environment (Optional)
 
 **Windows**
 
@@ -149,19 +156,19 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3️⃣ Install Dependencies
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Run the Application
+### Run the Application
 
 ```bash
 python app.py
 ```
 
-### 5️⃣ Open in Browser
+### Open in Your Browser
 
 ```
 http://127.0.0.1:5000
@@ -175,7 +182,7 @@ http://127.0.0.1:5000
 |------|---------------------------|
 | Target Variable | Price |
 | Framework | Scikit-learn |
-| Output | Estimated Audi Market Value |
+| Prediction | Estimated Audi Market Value |
 
 ---
 
@@ -183,17 +190,32 @@ http://127.0.0.1:5000
 
 - Support for multiple car brands
 - Live market price integration
-- Interactive price trend visualization
-- REST API support
-- User accounts and saved predictions
-- Advanced model comparison dashboard
+- Price trend visualization
+- Prediction confidence score
+- REST API
+- User authentication and prediction history
 
 ---
 
-## 👩‍💻 About the Developer
+## 👨‍💻 Author
 
 **Sidhi Deshmukh**
 
-Aspiring Data Analyst and Machine Learning Enthusiast passionate about building data-driven applications and solving real-world problems with AI.
+Aspiring Data Analyst and Machine Learning Enthusiast passionate about building intelligent, data-driven applications.
+
+- GitHub: https://github.com/yourusername
+- LinkedIn: https://linkedin.com/in/your-linkedin
 
 ---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
+
+It motivates me to build and share more projects.
+
+---
+
+<p align="center">
+Made with ❤️ using Python, Flask, and Machine Learning.
+</p>
