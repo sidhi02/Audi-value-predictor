@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi | Precision Valuation</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="page">
+<div class="container">
+
+    <!-- ================= NAV ================= -->
+
+    <div class="top-brand">
+        <div class="brand">
+            <img src="{{ url_for('static', filename='audi-logo.png') }}" alt="Audi Logo">
+            <span>AUDI</span>
+        </div>
+
+        <div class="page-title">
+            <span>Live Valuation Engine</span>
+        </div>
+    </div>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <h1>
+                Know Your<br>
+                <span>Audi's</span> Market Value
+            </h1>
+
+            <p>
+              Smart valuation powered by Random Forest AI.
+            </p>
+
+            <div class="hero-stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <div>
+                        <h3>98.4%</h3>
+                        <span>Model Accuracy</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>
+                    </div>
+                    <div>
+                        <h3>12,000+</h3>
+                        <span>Training Samples</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9h6v6H9z"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>
+                    </div>
+                    <div>
+                        <h3>Random Forest</h3>
+                        <span>Regression Core</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+            <div class="hero-image">
+                <svg class="rings" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="70" cy="60" r="50" fill="none" stroke="#fff" stroke-width="10"/>
+                    <circle cx="150" cy="60" r="50" fill="none" stroke="#fff" stroke-width="10"/>
+                    <circle cx="230" cy="60" r="50" fill="none" stroke="#fff" stroke-width="10"/>
+                    <circle cx="310" cy="60" r="50" fill="none" stroke="#fff" stroke-width="10"/>
+                </svg>
+                <img src="{{ url_for('static', filename='audi.jpg') }}" alt="Audi">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <section class="dashboard">
+
+        <!-- ============ INPUT PANEL ============ -->
+
+        <div class="input-card">
+
+            <div class="card-title">
+                <div class="titles">
+                    <h2>Vehicle Configuration</h2>
+                    <p>Enter the specifications of your Audi to generate a valuation.</p>
+                </div>
+                <span class="eyebrow-tag">Step 01 / 01</span>
+            </div>
+
+            <form method="POST" action="{{ url_for('predict') }}">
+
+                <div class="form-grid">
+
+                    <!-- ========= MODEL ========= -->
+                    <div class="input-group">
+                        <label>Model</label>
+                        <div class="input-wrap">
+                            <span class="field-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13"/><path d="M3 13h18v4a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H6v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>
+                            </span>
+                            <select name="model" required>
+                                <option value="">Select Model</option>
+                                <option value="A1" {% if form_data.get('model') == 'A1' %}selected{% endif %}>A1</option>
+                                <option value="A3" {% if form_data.get('model') == 'A3' %}selected{% endif %}>A3</option>
+                                <option value="A4" {% if form_data.get('model') == 'A4' %}selected{% endif %}>A4</option>
+                                <option value="A5" {% if form_data.get('model') == 'A5' %}selected{% endif %}>A5</option>
+                                <option value="A6" {% if form_data.get('model') == 'A6' %}selected{% endif %}>A6</option>
+                                <option value="A7" {% if form_data.get('model') == 'A7' %}selected{% endif %}>A7</option>
+                                <option value="A8" {% if form_data.get('model') == 'A8' %}selected{% endif %}>A8</option>
+                                <option value="Q2" {% if form_data.get('model') == 'Q2' %}selected{% endif %}>Q2</option>
+                                <option value="Q3" {% if form_data.get('model') == 'Q3' %}selected{% endif %}>Q3</option>
+                                <option value="Q5" {% if form_data.get('model') == 'Q5' %}selected{% endif %}>Q5</option>
+                                <option value="Q7" {% if form_data.get('model') == 'Q7' %}selected{% endif %}>Q7</option>
+                                <option value="Q8" {% if form_data.get('model') == 'Q8' %}selected{% endif %}>Q8</option>
+                                <option value="TT" {% if form_data.get('model') == 'TT' %}selected{% endif %}>TT</option>
+                                <option value="R8" {% if form_data.get('model') == 'R8' %}selected{% endif %}>R8</option>
+                                <option value="RS3" {% if form_data.get('model') == 'RS3' %}selected{% endif %}>RS3</option>
+                                <option value="RS4" {% if form_data.get('model') == 'RS4' %}selected{% endif %}>RS4</option>
+                                <option value="RS5" {% if form_data.get('model') == 'RS5' %}selected{% endif %}>RS5</option>
+                                <option value="RS6" {% if form_data.get('model') == 'RS6' %}selected{% endif %}>RS6</option>
+                                <option value="RS7" {% if form_data.get('model') == 'RS7' %}selected{% endif %}>RS7</option>
+                                <option value="S3" {% if form_data.get('model') == 'S3' %}selected{% endif %}>S3</option>
+                                <option value="S4" {% if form_data.get('model') == 'S4' %}selected{% endif %}>S4</option>
+                                <option value="S5" {% if form_data.get('model') == 'S5' %}selected{% endif %}>S5</option>
+                                <option value="S8" {% if form_data.get('model') == 'S8' %}selected{% endif %}>S8</option>
+                                <option value="SQ5" {% if form_data.get('model') == 'SQ5' %}selected{% endif %}>SQ5</option>
+                                <option value="SQ7" {% if form_data.get('model') == 'SQ7' %}selected{% endif %}>SQ7</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- ========= YEAR ========= -->
+                    <div class="input-group">
+                        <label>Year</label>
+                        <div class="input-wrap">
+                            <span class="field-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                            </span>
+                            <select name="year">
+                                {% for y in range(2010,2026) %}
+                                <option value="{{y}}" {% if form_data.get('year')==y|string %}selected{% endif %}>{{y}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- ========= TRANSMISSION ========= -->
+                    <div class="input-group">
+                        <label>Transmission</label>
+                        <div class="input-wrap">
+                            <span class="field-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M4.2 7.5l2.6 1.5M17.2 15l2.6 1.5M4.2 16.5l2.6-1.5M17.2 9l2.6-1.5"/></svg>
+                            </span>
+                            <select name="transmission">
+                                <option value="Manual" {% if form_data.get('transmission')=='Manual' %}selected{% endif %}>Manual</option>
+                                <option value="Automatic" {% if form_data.get('transmission')=='Automatic' %}selected{% endif %}>Automatic</option>
+                                <option value="Semi-Auto" {% if form_data.get('transmission')=='Semi-Auto' %}selected{% endif %}>Semi-Auto</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- ========= FUEL ========= -->
+                    <div class="input-group">
+                        <label>Fuel Type</label>
+                        <div class="input-wrap">
+                            <span class="field-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h6v18H6z"/><path d="M12 10h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0v-6l-2-2"/></svg>
+                            </span>
+                            <select name="fuel">
+                                <option value="Petrol" {% if form_data.get('fuel')=='Petrol' %}selected{% endif %}>Petrol</option>
+                                <option value="Diesel" {% if form_data.get('fuel')=='Diesel' %}selected{% endif %}>Diesel</option>
+                                <option value="Hybrid" {% if form_data.get('fuel')=='Hybrid' %}selected{% endif %}>Hybrid</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- ========= MILEAGE ========= -->
+                    <div class="input-group">
+                        <label>Mileage (km)</label>
+                        <div class="input-wrap">
+                            <span class="field-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-8 4 5 3-4 6 7"/><path d="M3 20h18"/></svg>
+                            </span>
+                            <input
+                                type="number"
+                                name="mileage"
+                                value="{{ form_data.get('mileage','') }}"
+                                placeholder="45000"
+                                required>
+                        </div>
+                    </div>
+
+                    <!-- ========= ENGINE ========= -->
+                    <div class="input-group">
+                        <label>Engine Size (L)</label>
+                        <div class="input-wrap">
+                            <span class="field-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="12" height="9" rx="1"/><path d="M15 11h3l3 3v3h-6"/><path d="M6 8V5h4v3"/></svg>
+                            </span>
+                            <select name="engine_size">
+                                <option value="1.0" {% if form_data.get('engine_size')=='1.0' %}selected{% endif %}>1.0</option>
+                                <option value="1.2" {% if form_data.get('engine_size')=='1.2' %}selected{% endif %}>1.2</option>
+                                <option value="1.4" {% if form_data.get('engine_size')=='1.4' %}selected{% endif %}>1.4</option>
+                                <option value="1.6" {% if form_data.get('engine_size')=='1.6' %}selected{% endif %}>1.6</option>
+                                <option value="1.8" {% if form_data.get('engine_size')=='1.8' %}selected{% endif %}>1.8</option>
+                                <option value="2.0" {% if form_data.get('engine_size')=='2.0' %}selected{% endif %}>2.0</option>
+                                <option value="2.5" {% if form_data.get('engine_size')=='2.5' %}selected{% endif %}>2.5</option>
+                                <option value="3.0" {% if form_data.get('engine_size')=='3.0' %}selected{% endif %}>3.0</option>
+                                <option value="3.2" {% if form_data.get('engine_size')=='3.2' %}selected{% endif %}>3.2</option>
+                                <option value="3.6" {% if form_data.get('engine_size')=='3.6' %}selected{% endif %}>3.6</option>
+                                <option value="4.0" {% if form_data.get('engine_size')=='4.0' %}selected{% endif %}>4.0</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- ========= MPG ========= -->
+                    <div class="input-group">
+                        <label>Fuel Efficiency (km/L)</label>
+                        <div class="input-wrap">
+                            <span class="field-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6M12 22v-4M4.9 4.9l3 3M16.1 16.1l3 3M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+                            </span>
+                            <input
+                                type="number"
+                                step="0.1"
+                                name="mpg"
+                                value="{{ form_data.get('mpg','') }}"
+                                placeholder="18"
+                                required>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div>
+                    <button class="predict-btn" type="submit">
+                        Calculate Valuation
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                    </button>
+
+                    <div class="security-note">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>
+                        Your data stays on this device &mdash; nothing is stored.
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <!-- ============ RESULT / COCKPIT PANEL ============ -->
+
+        <div class="result-card">
+
+            <div class="result-header">
+                <div>
+                    <div class="cockpit-eyebrow">Live Readout</div>
+                    <h3>Valuation Cockpit</h3>
+                </div>
+            </div>
+
+            <div class="gauge-wrap">
+                <svg class="gauge-svg" viewBox="0 0 200 108" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#8b929c"/>
+                            <stop offset="100%" stop-color="#ff2447"/>
+                        </linearGradient>
+                    </defs>
+                    <path class="gauge-track" d="M15,100 A85,85 0 0,1 185,100"/>
+                    <path class="gauge-fill" d="M15,100 A85,85 0 0,1 185,100"
+                          style="stroke-dasharray:{{ gauge_dash|default(0) }} 251.3"/>
+                    <!-- tick marks -->
+                    <line class="gauge-tick" x1="15" y1="100" x2="22" y2="93"/>
+                    <line class="gauge-tick" x1="35" y1="57" x2="41" y2="62"/>
+                    <line class="gauge-tick" x1="72" y1="24" x2="76" y2="31"/>
+                    <line class="gauge-tick" x1="100" y1="15" x2="100" y2="23"/>
+                    <line class="gauge-tick" x1="128" y1="24" x2="124" y2="31"/>
+                    <line class="gauge-tick" x1="165" y1="57" x2="159" y2="62"/>
+                    <line class="gauge-tick" x1="185" y1="100" x2="178" y2="93"/>
+                </svg>
+
+                <div class="gauge-needle-wrap" style="transform:translateX(-50%) rotate({{ gauge_angle|default(-90) }}deg)">
+                    <div class="gauge-needle"></div>
+                </div>
+                <div class="gauge-cap"></div>
+
+                <div class="gauge-value">
+                    {% if prediction %}
+                        <span class="currency">&#8377;</span><span class="amount">{{ prediction | indian }}</span>
+                    {% else %}
+                        <span class="amount placeholder">&mdash;</span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="gauge-scale-label">
+                <span>&#8377;0</span>
+                <span>&#8377;25L</span>
+                <span>&#8377;50L+</span>
+            </div>
+
+            {% if prediction %}
+
+                <div class="model-used">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                    Powered by Random Forest Regression
+                </div>
+
+                <div class="badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+                    98.4% model confidence
+                </div>
+
+                <div class="summary">
+                    <h4>Vehicle Summary</h4>
+
+                    <div class="summary-row">
+                        <span>Model</span>
+                        <strong>{{ form_data.model }}</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Year</span>
+                        <strong>{{ form_data.year }}</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Fuel</span>
+                        <strong>{{ form_data.fuel }}</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Transmission</span>
+                        <strong>{{ form_data.transmission }}</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Mileage</span>
+                        <strong>{{ form_data.mileage }} km</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Engine</span>
+                        <strong>{{ form_data.engine_size }} L</strong>
+                    </div>
+                </div>
+
+            {% elif error %}
+
+                <div class="error-state">{{ error }}</div>
+
+            {% else %}
+
+                <div class="empty-state">
+                    Fill in the vehicle details and click<br>
+                    <strong>Calculate Valuation</strong> to see your estimate.
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        &mdash; Developed by Sidhi
+    </footer>
+
+</div>
+</div>
+</body>
+
+</html>
