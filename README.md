@@ -1,4 +1,4 @@
-<h1 align="center">🚗 Audi Car Price Predictor</h1>
+<h1 align="center">Audi Car Price Predictor</h1>
 
 <p align="center">
   <strong>AI-powered web application that predicts the market value of Audi cars using Machine Learning.</strong>
